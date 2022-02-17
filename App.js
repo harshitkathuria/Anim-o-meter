@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, SafeAreaView, FlatList } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  FlatList,
+  Dimensions
+} from "react-native";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Main from "./components/Main";
 
 export default function App() {
@@ -9,6 +17,7 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <Navbar />
       <Main />
+      <Footer />
       <StatusBar style="auto" />
     </SafeAreaView>
   );
@@ -17,6 +26,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    position: "relative",
+    minHeight: Dimensions.get("window").height,
     backgroundColor: "#fff"
   }
 });
