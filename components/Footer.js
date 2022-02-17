@@ -13,8 +13,6 @@ const styles = StyleSheet.create({
   footer: {
     backgroundColor: "#2e2c2c",
     paddingVertical: 14,
-    position: "absolute",
-    bottom: 0,
     width: "100%"
   },
   footer_h1: {
