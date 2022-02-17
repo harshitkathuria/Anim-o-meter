@@ -4,7 +4,8 @@ import {
   View,
   TouchableOpacity,
   Text,
-  ActivityIndicator
+  ActivityIndicator,
+  SafeAreaView
 } from "react-native";
 import { useState, useRef } from "react";
 import React from "react";
@@ -40,7 +41,7 @@ export default function Main() {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <TextInput
         value={search}
         onChangeText={text => setSearch(text)}
@@ -62,12 +63,14 @@ export default function Main() {
         </Text>
       </TouchableOpacity>
       {loading ? <Spinner /> : <List list={list} type={previousType.current} />}
-    </View>
+      <Text style={{ height: 50 }}></Text>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     marginHorizontal: 10,
     alignItems: "center"
   },

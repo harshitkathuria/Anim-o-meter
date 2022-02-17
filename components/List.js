@@ -78,7 +78,7 @@ const List = ({ list, type }) => {
       <View>
         <Text>
           <Text style={styles.subheading}>Created: </Text>
-          {item.created}
+          {item.created.substring(0, 10)}
         </Text>
         <Text>
           <Text style={styles.subheading}>Category: </Text>
