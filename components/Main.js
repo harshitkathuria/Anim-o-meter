@@ -1,10 +1,8 @@
 import {
   StyleSheet,
   TextInput,
-  View,
   TouchableOpacity,
   Text,
-  ActivityIndicator,
   SafeAreaView
 } from "react-native";
 import { useState, useRef } from "react";
@@ -36,6 +34,10 @@ export default function Main() {
     fetchList();
   };
 
+  const handleClear = () => {
+    setList([]);
+  };
+
   const updateType = pick => {
     setType(pick);
   };
@@ -54,7 +56,6 @@ export default function Main() {
           style={{
             ...styles.subheading,
             marginBottom: 7,
-            color: "#0969da",
             textAlign: "center",
             color: "#fff"
           }}
@@ -62,8 +63,26 @@ export default function Main() {
           Search
         </Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        style={{
+          ...styles.button,
+          backgroundColor: "#c4c4c4",
+          marginBottom: 15
+        }}
+        onPress={handleClear}
+      >
+        <Text
+          style={{
+            ...styles.subheading,
+            marginBottom: 7,
+            textAlign: "center",
+            color: "#000"
+          }}
+        >
+          Clear
+        </Text>
+      </TouchableOpacity>
       {loading ? <Spinner /> : <List list={list} type={previousType.current} />}
-      <Text style={{ height: 50 }}></Text>
     </SafeAreaView>
   );
 }
@@ -91,7 +110,6 @@ const styles = StyleSheet.create({
     marginTop: 15,
     padding: 10,
     width: "100%",
-    borderRadius: 10,
-    marginBottom: 15
+    borderRadius: 10
   }
 });
